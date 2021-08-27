@@ -43,8 +43,8 @@ export const getters: GetterTree<PaypalState, any> = {
   },
 
   /**
-   * I don't think this is needed anymore since we use 
-   * amount: rootGetters['cart/getTotals'] to get the 
+   * I don't think this is needed anymore since we use
+   * amount: rootGetters['cart/getTotals'] to get the
    * amounts.
    */
   getAmount: (state, getters, rootState, rootGetters) => {
@@ -90,7 +90,7 @@ export const getters: GetterTree<PaypalState, any> = {
     //
     return rootState.cart.cartItems.map(product => {
       // At some point you might want to add taxes here:
-      //const productPrice = config.tax.finalPriceIncludesTax ? totals.price_incl_tax : 123;
+      // const productPrice = config.tax.finalPriceIncludesTax ? totals.price_incl_tax : 123;
       const productPrice = product.price_incl_tax;
       return {
         name: product.name,

@@ -49,7 +49,7 @@ export const actions: ActionTree<PaypalState, any> = {
 
   // Create order using Server Side methods same as magento 2...
   async processOrder ({ dispatch, getters }) {
-    return await dispatch('setExpressCheckout', {
+    return dispatch('setExpressCheckout', {
       cart_id: getters['cart/getCartToken'],
       brand_name: '',
       locale: getters['getLocale'],
@@ -90,5 +90,5 @@ export const actions: ActionTree<PaypalState, any> = {
       },
       body: JSON.stringify(params)
     }).then(resp => { return resp.json() })
-  },
+  }
 }
