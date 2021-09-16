@@ -12,10 +12,6 @@ export const PaypalButton = {
         shape: 'rect',
         label: 'paypal'
       })
-    },
-    disabled: {
-      type: Boolean,
-      default: false
     }
   },
   computed: {
@@ -30,19 +26,11 @@ export const PaypalButton = {
     // We use the SDK to render the PayPal Button.
     //
     renderButton () {
-      if (this.disabled) {
-        window.paypal.Buttons({
-          createOrder: null,
-          onApprove: null,
-          style: this.styling
-        }).render('.paypal-button')
-      } else {
-        window.paypal.Buttons({
-          createOrder: this.onCreateOrder,
-          onApprove: this.onApprove,
-          style: this.styling
-        }).render('.paypal-button')
-      }
+      window.paypal.Buttons({
+        createOrder: this.onCreateOrder,
+        onApprove: this.onApprove,
+        style: this.styling
+      }).render('.paypal-button')
     },
 
     //
